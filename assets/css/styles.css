@@ -438,3 +438,34 @@ details summary::-webkit-details-marker{display:none}
 .legal ul{margin:0 0 12px;padding:0;list-style:none;display:grid;gap:10px}
 .legal li{display:flex;gap:10px;align-items:flex-start}
 .legal li>.ph{color:var(--color-accent);font-size:20px;flex:none;margin-top:3px}
+
+/* — precios: tres planes (en celular uno debajo de otro) — */
+.plans{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;max-width:480px;margin:0 auto}
+@media(min-width:960px){.plans{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none;align-items:stretch}}
+.plan-wrap{display:flex}
+.plan{flex:1;gap:0;margin:0;padding:clamp(22px,3vw,28px);border-radius:16.5px;box-shadow:0 0 0 1px var(--color-neutral-800);min-width:0}
+.plan-feat{box-shadow:none;background:radial-gradient(ellipse 90% 60% at 80% 0%,rgba(24,116,67,.32) 0%,rgba(24,116,67,0) 100%),var(--color-surface)}
+.plan-badge{align-self:flex-start;gap:6px;margin:0 0 14px;padding:5px 10px;font-size:13px;font-weight:600;background:var(--color-accent);color:var(--color-accent-900)}
+.plan-name{font-size:24px;margin:0}
+.plan-for{margin:6px 0 0;font-size:15px;line-height:1.45;color:var(--color-neutral-300)}
+.plan-price{margin:18px 0 0;font-family:var(--font-heading);font-size:clamp(44px,6vw,52px);font-weight:800;line-height:1;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+.plan-price span{font-size:18px;font-weight:600;letter-spacing:0;color:var(--color-neutral-300);margin-left:4px}
+.plan-feat .plan-price{text-shadow:0 0 40px rgba(60,207,125,.3)}
+.plan-setup{margin:8px 0 0;font-size:15px;color:var(--color-neutral-300)}
+.plan-sub{margin:20px 0 -8px;font-size:15px;font-weight:600;color:var(--color-accent-300)}
+.plan-list{list-style:none;margin:20px 0 24px;padding:0;display:grid;gap:10px}
+.plan-list li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.45}
+.plan-list li>.ph{flex:none;width:22px;height:22px;border-radius:50%;background:var(--color-accent-800);color:var(--color-accent-200);font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:0}
+.plan .btn{margin-top:auto;min-height:52px;font-size:16px;width:100%}
+.plan .btn .ph{font-size:20px}
+.btn-solid{background:var(--color-accent);color:var(--color-accent-900);border-color:var(--color-accent)}
+.btn-solid:hover{background:var(--color-accent-400);color:var(--color-accent-900)}
+.btn-secondary{color:var(--color-neutral-100)}
+.btn-secondary:hover{color:var(--color-neutral-100)}
+.plans-note{max-width:480px;margin:16px auto 0;display:flex;gap:8px;align-items:flex-start;font-size:15px;line-height:1.5;color:var(--color-neutral-300)}
+.plans-note>.ph{color:var(--color-accent);flex:none;font-size:18px;margin-top:2px}
+@media(min-width:960px){.plans-note{max-width:none;justify-content:center}}
+.demos{margin-top:48px;padding-top:32px;border-top:1px solid var(--color-neutral-800)}
+.demo-btns{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px}
+.demo-btn{min-height:52px;font-size:16px}
+.demo-btn .ph{font-size:20px}

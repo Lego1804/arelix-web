@@ -1,5 +1,5 @@
 // Comportamiento de la página: barra superior al hacer scroll, animaciones de
-// aparición, chat de demostración y contador del precio. Sin dependencias.
+// aparición y chat de demostración. Sin dependencias.
 (function () {
   var root = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -20,25 +20,6 @@
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
-
-  var priceEl = document.querySelector('[data-price]');
-  var priceNum = document.querySelector('[data-price-num]');
-  if (priceEl && priceNum) {
-    var target = parseInt(priceNum.textContent, 10) || 0;
-    priceNum.textContent = '0';
-    var pio = new IntersectionObserver(function (entries) {
-      if (!entries.some(function (e) { return e.isIntersecting; })) return;
-      pio.disconnect();
-      var t0 = performance.now();
-      var tick = function (t) {
-        var p = Math.min(1, (t - t0) / 1400);
-        priceNum.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3))));
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    }, { threshold: 0.5 });
-    pio.observe(priceEl);
-  }
 
   var q = document.querySelector('[data-chat="q"]');
   var typing = document.querySelector('[data-chat="typing"]');
